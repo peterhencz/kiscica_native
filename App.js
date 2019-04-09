@@ -8,18 +8,26 @@ import {
   View,
 } from "react-native";
 
+import Nav from "./src/Nav";
+import Generator from "./src/Generator";
+
 const { UIManager } = NativeModules;
 UIManager.setLayoutAnimationEnabledExperimental &&
   UIManager.setLayoutAnimationEnabledExperimental(true);
 
 class App extends Component {
   state = {
+    nameOfApp: "kiscica",
+    random: ["😶", "💥", "🍻", "🛸"],
     w: 100,
     h: 100,
     fontSize: 60,
   };
+
+  onAddRandom = () => {
+    alert("add random");
+  };
   _onPress = () => {
-    // Animate the update
     LayoutAnimation.spring();
     this.setState({ fontSize: this.state.fontSize + 20 });
   };
@@ -27,15 +35,14 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>kiscica</Text>
+        <Nav name={this.state.nameOfApp} />
         <View style={styles.button} />
         <TouchableOpacity onPress={this._onPress}>
-          <Text
-            // onPress={() => alert("Miau")}
-            style={(styles.box, { fontSize: this.state.fontSize })}>
+          <Text style={(styles.box, { fontSize: this.state.fontSize })}>
             🐱
           </Text>
         </TouchableOpacity>
+        <Generator add={this.onAddRandom} />
       </View>
     );
   }
