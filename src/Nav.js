@@ -10,7 +10,6 @@ const Nav = props => (
 const styles = StyleSheet.create({
   nav: {
     width: "100%",
-    backgroundColor: "#d6b8b8",
     paddingTop: 40,
     fontSize: 30,
     fontWeight: "bold",

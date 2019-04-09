@@ -6,11 +6,13 @@ import {
   TouchableWithoutFeedback,
   StyleSheet,
   View,
+  Button,
+  ScrollView,
 } from "react-native";
 
 import Nav from "./src/Nav";
 import Generator from "./src/Generator";
-import ListItem from "./src/ListItem";
+import Input from "./src/Input";
 
 const { UIManager } = NativeModules;
 UIManager.setLayoutAnimationEnabledExperimental &&
@@ -25,7 +27,7 @@ class App extends Component {
     h: 100,
     fontSize: 60,
     emojiOpacity: 1,
-    marginTop: 400,
+    marginTop: 360,
   };
 
   onAddRandom = () => {
@@ -34,7 +36,7 @@ class App extends Component {
       return {
         emoji: this.state.randoms[random],
         fontSize: 60,
-        marginTop: 400,
+        marginTop: 360,
       };
     });
   };
@@ -49,10 +51,14 @@ class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Nav name={this.state.nameOfApp} />
-        <View style={styles.button} />
-        <TouchableWithoutFeedback onPress={this._onPress}>
+      <ScrollView style={{ width: "100%" }}>
+        <View style={styles.container}>
+          <Nav name={this.state.nameOfApp} />
+          <View>
+            <Input style={styles.input} />
+          </View>
+          <View style={styles.button} />
+          {/* <TouchableWithoutFeedback onPress={this._onPress}>
           <View style={styles.emoji}>
             <Text
               style={{
@@ -66,9 +72,10 @@ class App extends Component {
             </Text>
           </View>
         </TouchableWithoutFeedback>
-        <Generator add={this.onAddRandom} />
-        {/* <ListItem items={this.state.emoji} /> */}
-      </View>
+        <Generator add={this.onAddRandom} /> */}
+          {/* <ListItem items={this.state.emoji} /> */}
+        </View>
+      </ScrollView>
     );
   }
 }
@@ -76,9 +83,9 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 2,
-    justifyContent: "space-between",
+
     alignItems: "center",
-    backgroundColor: "#f4baba",
+    backgroundColor: "#d4d7db",
   },
   emoji: {
     position: "absolute",
