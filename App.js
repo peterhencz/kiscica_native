@@ -8,11 +8,14 @@ import {
   View,
   Button,
   ScrollView,
+  Image,
 } from "react-native";
 
 import Nav from "./src/Nav";
 import Generator from "./src/Generator";
 import Input from "./src/Input";
+import Picker from "./src/Picker";
+import Cica from "./src/assets/images/test_cica2.jpg";
 
 const { UIManager } = NativeModules;
 UIManager.setLayoutAnimationEnabledExperimental &&
@@ -51,45 +54,50 @@ class App extends Component {
 
   render() {
     return (
-      <ScrollView style={{ width: "100%" }}>
-        <View style={styles.container}>
-          <Nav name={this.state.nameOfApp} />
-          <View>
-            <Input style={styles.input} />
-          </View>
-          <View style={styles.button} />
-          {/* <TouchableWithoutFeedback onPress={this._onPress}>
-          <View style={styles.emoji}>
-            <Text
-              style={{
-                marginTop: this.state.marginTop,
-                width: 4000,
-                textAlign: "center",
-                fontSize: this.state.fontSize,
-                opacity: this.state.emojiOpacity,
-              }}>
-              {this.state.emoji}
-            </Text>
-          </View>
-        </TouchableWithoutFeedback>
-        <Generator add={this.onAddRandom} /> */}
-          {/* <ListItem items={this.state.emoji} /> */}
-        </View>
-      </ScrollView>
+      <View style={styles.container}>
+        <Nav name={this.state.nameOfApp} />
+
+        <ScrollView style={{ width: "100%" }}>
+          {/* <Input style={styles.input} /> */}
+          {/* <Picker /> */}
+          <Image source={Cica} style={styles.cica} />
+        </ScrollView>
+
+        {/* <View style={styles.button} />
+          <TouchableWithoutFeedback onPress={this._onPress}>
+            <View style={styles.emoji}>
+              <Text
+                style={{
+                  marginTop: this.state.marginTop,
+                  width: 4000,
+                  textAlign: "center",
+                  fontSize: this.state.fontSize,
+                  opacity: this.state.emojiOpacity,
+                }}>
+                {this.state.emoji}
+              </Text>
+            </View>
+          </TouchableWithoutFeedback>
+          <Generator add={this.onAddRandom} /> */}
+        {/* <ListItem items={this.state.emoji} /> */}
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
-
+    flex: 1,
     alignItems: "center",
     backgroundColor: "#d4d7db",
   },
   emoji: {
     position: "absolute",
     alignSelf: "center",
+  },
+  cica: {
+    width: "100%",
+    height: 300,
   },
 });
 
