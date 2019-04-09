@@ -9,14 +9,16 @@ const Nav = props => (
 
 const styles = StyleSheet.create({
   nav: {
-    backgroundColor: "white",
-    alignItems: "center",
-    paddingTop: 10,
     width: "100%",
+    backgroundColor: "#d6b8b8",
+    paddingTop: 40,
+    fontSize: 30,
+    fontWeight: "bold",
   },
   navText: {
+    textAlign: "center",
     fontSize: 30,
-    color: "red",
+    color: "white",
   },
 });
 

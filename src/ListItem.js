@@ -6,8 +6,8 @@ const ListItem = props => {
 };
 
 const styles = StyleSheet.create({
-  generate: {
-    backgroundColor: "#00cdd4",
+  listItem: {
+    backgroundColor: "#bcbcbc",
     alignItems: "center",
     paddingTop: 10,
     width: "100%",

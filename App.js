@@ -3,13 +3,14 @@ import {
   NativeModules,
   LayoutAnimation,
   Text,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
   StyleSheet,
   View,
 } from "react-native";
 
 import Nav from "./src/Nav";
 import Generator from "./src/Generator";
+import ListItem from "./src/ListItem";
 
 const { UIManager } = NativeModules;
 UIManager.setLayoutAnimationEnabledExperimental &&
@@ -18,18 +19,32 @@ UIManager.setLayoutAnimationEnabledExperimental &&
 class App extends Component {
   state = {
     nameOfApp: "kiscica",
-    random: ["😶", "💥", "🍻", "🛸"],
+    randoms: ["😶", "💥", "🍻", "🛸", "🐲", "🧼", "🦙"],
+    emoji: "🐱",
     w: 100,
     h: 100,
     fontSize: 60,
+    emojiOpacity: 1,
+    marginTop: 400,
   };
 
   onAddRandom = () => {
-    alert("add random");
+    const random = Math.floor(Math.random() * this.state.randoms.length);
+    this.setState(prevState => {
+      return {
+        emoji: this.state.randoms[random],
+        fontSize: 60,
+        marginTop: 400,
+      };
+    });
   };
+
   _onPress = () => {
     LayoutAnimation.spring();
-    this.setState({ fontSize: this.state.fontSize + 20 });
+    this.setState({
+      fontSize: this.state.fontSize + 20,
+      marginTop: this.state.marginTop - 12,
+    });
   };
 
   render() {
@@ -37,12 +52,22 @@ class App extends Component {
       <View style={styles.container}>
         <Nav name={this.state.nameOfApp} />
         <View style={styles.button} />
-        <TouchableOpacity onPress={this._onPress}>
-          <Text style={(styles.box, { fontSize: this.state.fontSize })}>
-            🐱
-          </Text>
-        </TouchableOpacity>
+        <TouchableWithoutFeedback onPress={this._onPress}>
+          <View style={styles.emoji}>
+            <Text
+              style={{
+                marginTop: this.state.marginTop,
+                width: 4000,
+                textAlign: "center",
+                fontSize: this.state.fontSize,
+                opacity: this.state.emojiOpacity,
+              }}>
+              {this.state.emoji}
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
         <Generator add={this.onAddRandom} />
+        {/* <ListItem items={this.state.emoji} /> */}
       </View>
     );
   }
@@ -50,21 +75,14 @@ class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
+    flex: 2,
+    justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "#f4baba",
   },
-
-  title: {
-    fontSize: 30,
-    fontWeight: "bold",
-    color: "#fff",
-    textAlign: "center",
-    margin: 10,
-  },
-  cica: {
-    fontSize: 60,
+  emoji: {
+    position: "absolute",
+    alignSelf: "center",
   },
 });
 
