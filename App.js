@@ -60,10 +60,9 @@ class App extends Component {
         <ScrollView style={{ width: "100%" }}>
           {/* <Input style={styles.input} /> */}
           {/* <Picker /> */}
-          <Image source={Cica} style={styles.cica} />
-        </ScrollView>
+          {/* <Image source={Cica} style={styles.cica} /> */}
 
-        {/* <View style={styles.button} />
+          {/* <View style={styles.button} /> */}
           <TouchableWithoutFeedback onPress={this._onPress}>
             <View style={styles.emoji}>
               <Text
@@ -78,7 +77,8 @@ class App extends Component {
               </Text>
             </View>
           </TouchableWithoutFeedback>
-          <Generator add={this.onAddRandom} /> */}
+          <Generator add={this.onAddRandom} />
+        </ScrollView>
         {/* <ListItem items={this.state.emoji} /> */}
       </View>
     );

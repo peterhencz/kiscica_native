@@ -5,7 +5,7 @@ const Generate = props => {
   return (
     <TouchableWithoutFeedback onPress={() => props.add()}>
       <View style={styles.generate}>
-        <Text style={styles.generateText}>'🕳'</Text>
+        <Text style={styles.generateText}>🕳</Text>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -15,10 +15,11 @@ const styles = StyleSheet.create({
   generate: {
     marginTop: 600,
     position: "absolute",
+    alignItems: "center",
   },
   generateText: {
     fontSize: 30,
-    color: "#d6b8b8",
+    textAlign: "center",
   },
 });
 
