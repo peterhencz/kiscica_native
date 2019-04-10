@@ -15,6 +15,7 @@ import Nav from "./src/Nav";
 import Generator from "./src/Generator";
 import Input from "./src/Input";
 import Picker from "./src/Picker";
+import ModalComponent from "./src/Modal";
 import Cica from "./src/assets/images/test_cica2.jpg";
 
 const { UIManager } = NativeModules;
@@ -58,12 +59,11 @@ class App extends Component {
         <Nav name={this.state.nameOfApp} />
 
         <ScrollView style={{ width: "100%" }}>
-          {/* <Input style={styles.input} /> */}
+          {/* <Input style={styles.input} />
           {/* <Picker /> */}
-          {/* <Image source={Cica} style={styles.cica} /> */}
-
-          {/* <View style={styles.button} /> */}
-          <TouchableWithoutFeedback onPress={this._onPress}>
+          {/* <Image source={Cica} style={styles.cica} resizeMode="contain" /> */}
+          {/* <View style={styles.button} />
+          {/* <TouchableWithoutFeedback onPress={this._onPress}>
             <View style={styles.emoji}>
               <Text
                 style={{
@@ -77,7 +77,8 @@ class App extends Component {
               </Text>
             </View>
           </TouchableWithoutFeedback>
-          <Generator add={this.onAddRandom} />
+          <Generator add={this.onAddRandom} /> */}
+          <ModalComponent />
         </ScrollView>
         {/* <ListItem items={this.state.emoji} /> */}
       </View>
