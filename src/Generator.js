@@ -14,7 +14,7 @@ const Generate = props => {
 const styles = StyleSheet.create({
   generate: {
     marginTop: 600,
-    position: "absolute",
+
     alignItems: "center",
   },
   generateText: {
