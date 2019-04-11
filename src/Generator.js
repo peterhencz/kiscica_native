@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Text, StyleSheet, View, TouchableWithoutFeedback } from "react-native";
 
-const Generate = props => {
+const Generator = props => {
   return (
     <TouchableWithoutFeedback onPress={() => props.add()}>
       <View style={styles.generate}>
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Generate;
+export default Generator;
