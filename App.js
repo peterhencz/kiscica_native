@@ -58,11 +58,6 @@ class App extends Component {
         <Nav name={this.state.nameOfApp} />
 
         <ScrollView style={{ width: "100%" }}>
-          {/* <Input style={styles.input} /> */}
-          {/* <Picker /> */}
-          {/* <Image source={Cica} style={styles.cica} /> */}
-
-          {/* <View style={styles.button} /> */}
           <TouchableWithoutFeedback onPress={this._onPress}>
             <View style={styles.emoji}>
               <Text
