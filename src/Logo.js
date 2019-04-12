@@ -1,17 +1,19 @@
 import React, { Component } from "react";
-import { Image } from "react-native";
+import { Image, ImageBackground } from "react-native";
 import Logo from "./assets/logo.png";
 
 class LogoTitle extends Component {
   render() {
     return (
-      <Image
+      <ImageBackground
         source={Logo}
         style={{
           alignItems: "center",
           justifyContent: "center",
-          width: 200,
-          height: 50,
+          marginTop: 80,
+          marginBottom: 20,
+          width: 300,
+          height: 100,
         }}
       />
     );

@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import { Text, View, ScrollView } from "react-native";
 import { createAppContainer, createBottomTabNavigator } from "react-navigation";
 
-import Generator from "./src/Generator";
+import LogoTitle from "./src/Logo";
 import HomeScreen from "./src/Home";
 import CreditScreen from "./src/Credit";
 
 const AppNavigator = createBottomTabNavigator(
   {
-    Play: HomeScreen,
+    YOLO: { screen: HomeScreen },
     "🐱": CreditScreen,
   },
   {
-    initialRouteName: "Play",
+    initialRouteName: "YOLO",
     tabBarOptions: {
       activeTintColor: "#f4baba",
       labelStyle: {
@@ -22,8 +22,8 @@ const AppNavigator = createBottomTabNavigator(
     },
     defaultNavigationOptions: () => ({
       tabBarOnPress: ({ navigation, defaultHandler }) => {
-        if (navigation.state.key === "Play") {
-          navigation.navigate("Play");
+        if (navigation.state.key === "YOLO") {
+          navigation.navigate("YOLO");
         } else {
           defaultHandler();
         }

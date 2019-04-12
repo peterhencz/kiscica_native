@@ -9,11 +9,13 @@ class CreditScreen extends Component {
           flex: 1,
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "white",
+          backgroundColor: "#f4baba",
         }}>
-        <Text>home</Text>
-
-        <Text>cica</Text>
+        <Text
+          style={{ color: "white", fontSize: 260 }}
+          onPress={() => alert("miau")}>
+          YOLO
+        </Text>
       </View>
     );
   }

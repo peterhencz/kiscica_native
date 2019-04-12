@@ -11,6 +11,7 @@ import {
   Image,
 } from "react-native";
 
+import LogoTitle from "./Logo";
 import Generator from "./Generator";
 import Input from "./Input";
 import Picker from "./Picker";
@@ -23,13 +24,13 @@ UIManager.setLayoutAnimationEnabledExperimental &&
 class HomeScreen extends Component {
   state = {
     nameOfApp: "kiscica",
-    randoms: ["😶", "💥", "🍻", "🛸", "🐲", "🧼", "🦙"],
+    randoms: ["😶", "💥", "🍻", "🛸", "🐲", "🧼", "🦙", "🧟‍♀️", "🥬", "🧱"],
     emoji: "🐱",
     w: 100,
     h: 100,
     fontSize: 60,
     emojiOpacity: 1,
-    marginTop: 360,
+    marginTop: 180,
   };
 
   onAddRandom = () => {
@@ -38,7 +39,7 @@ class HomeScreen extends Component {
       return {
         emoji: this.state.randoms[random],
         fontSize: 60,
-        marginTop: 360,
+        marginTop: 180,
       };
     });
   };
@@ -54,23 +55,26 @@ class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView style={{ width: "100%" }}>
-          <TouchableWithoutFeedback onPress={this._onPress}>
-            <View style={styles.emoji}>
-              <Text
-                style={{
-                  marginTop: this.state.marginTop,
-                  width: 4000,
-                  textAlign: "center",
-                  fontSize: this.state.fontSize,
-                  opacity: this.state.emojiOpacity,
-                }}>
-                {this.state.emoji}
-              </Text>
-            </View>
-          </TouchableWithoutFeedback>
-          <Generator add={this.onAddRandom} />
-        </ScrollView>
+        {/* <ScrollView style={{ width: "100%" }}> */}
+        <LogoTitle style={{ position: "fixed" }} />
+        <TouchableWithoutFeedback onPress={this._onPress}>
+          <View style={styles.emoji}>
+            <Text
+              style={{
+                marginTop: this.state.marginTop,
+                width: 4000,
+                textAlign: "center",
+                fontSize: this.state.fontSize,
+                opacity: this.state.emojiOpacity,
+                justifyContent: "center",
+                alignItems: "center",
+              }}>
+              {this.state.emoji}
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <Generator add={this.onAddRandom} />
+        {/* </ScrollView> */}
         {/* <ListItem items={this.state.emoji} /> */}
       </View>
     );
@@ -84,8 +88,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#d4d7db",
   },
   emoji: {
-    position: "absolute",
     alignSelf: "center",
+    justifyContent: "center",
   },
   cica: {
     width: "100%",
