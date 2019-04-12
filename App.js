@@ -10,7 +10,7 @@ import {
   ScrollView,
   Image,
 } from "react-native";
-
+import Slider from "@react-native-community/slider";
 import Nav from "./src/Nav";
 import Generator from "./src/Generator";
 import Input from "./src/Input";
@@ -77,7 +77,14 @@ class App extends Component {
               </Text>
             </View>
           </TouchableWithoutFeedback>
+          
           <Generator add={this.onAddRandom} /> */}
+          <Slider
+            trackStyle={styles.track}
+            thumbStyle={styles.thumb}
+            thumbTintColor={"#f4baba"}
+            minimumTrackTintColor="#d14ba6"
+          />
           <ModalComponent />
         </ScrollView>
         {/* <ListItem items={this.state.emoji} /> */}
@@ -99,6 +106,17 @@ const styles = StyleSheet.create({
   cica: {
     width: "100%",
     height: 300,
+  },
+  track: {
+    height: 18,
+    borderRadius: 1,
+    backgroundColor: "#d5d8e8",
+  },
+  thumb: {
+    width: 10,
+    height: 30,
+    borderRadius: 5,
+    backgroundColor: "#eb6e1b",
   },
 });
 
